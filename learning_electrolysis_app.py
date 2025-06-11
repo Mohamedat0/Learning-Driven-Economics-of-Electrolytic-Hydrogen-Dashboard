@@ -216,8 +216,8 @@ with st.sidebar:
 
     # Create tabs for different parameter categories
     params_tabs = st.tabs([
-        "Technology Parameters", "Regional Parameters", "Growth Rates",
-        "Projection Parameters"
+        "Technology Parameters", "Regional Parameters", "Projection Parameters",
+        "Growth Rates"
     ])
 
     # ========== TECHNOLOGY PARAMETERS ==========
@@ -532,7 +532,7 @@ with st.sidebar:
 
                 region_base_capacities[region] = tech_base_capacities
 
-    # ========== GROWTH RATES ==========
+    # ========== PROJECTION PARAMETERS ==========
     with params_tabs[2]:
         st.subheader("Annual Growth Rates by Region (%)")
 
@@ -2714,57 +2714,7 @@ with main_tabs[3]:
 
 
 
-# Add Quick Insight Floating Button
-with st.container():
-    st.markdown("""
-    <style>
-    .floating-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #4CAF50;
-        color: white;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-    }
-    .floating-button:hover {
-        background-color: #45a049;
-    }
-    </style>
-    <div class="floating-button" onclick="showInsight()">💡</div>
-    
-    <script>
-    function showInsight() {
-        // Get current view
-        const currentTab = document.querySelector('.stTabs [aria-selected="true"]').textContent;
-        
-        let insightMessage = "";
-        
-        // Customize insight based on current tab
-        if (currentTab.includes("LCOH Parameters")) {
-            insightMessage = "Electricity cost and utilization rate have the biggest impact on LCOH. Reducing electricity costs by 50% can reduce LCOH by 30-40%.";
-        } else if (currentTab.includes("Regional Projections")) {
-            insightMessage = "China consistently shows the lowest projected LCOH due to lower BoP & EPC costs and faster manufacturing scale-up.";
-        } else if (currentTab.includes("Sensitivity Analysis")) {
-            insightMessage = "LCOH is most sensitive to electricity costs, followed by capacity factor. WACC has a relatively smaller impact on overall LCOH.";
-        } else {
-            insightMessage = "Use the slider controls to adjust parameters and see real-time changes in projections. Compare different learning models to see their impact.";
-        }
-        
-        // Show the insight in an alert
-        alert("💡 Quick Insight: " + insightMessage);
-    }
-    </script>
-    """, unsafe_allow_html=True)
+
 
 # ==================== LEARNING INVESTMENT TAB ====================
 with main_tabs[4]:
