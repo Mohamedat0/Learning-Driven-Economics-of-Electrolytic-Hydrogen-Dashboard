@@ -216,8 +216,8 @@ with st.sidebar:
 
     # Create tabs for different parameter categories
     params_tabs = st.tabs([
-        "Technology Parameters", "Regional Parameters", "Projection Parameters",
-        "Growth Rates"
+        "Technology Parameters", "Regional Parameters", "Growth Rates",
+        "Projection Window"
     ])
 
     # ========== TECHNOLOGY PARAMETERS ==========
